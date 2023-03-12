@@ -1,3 +1,6 @@
+@use '../abstracts/mixins' as mix;
+@use '../abstracts/variables' as var;
+
 html {
   font-size: 16px;
 }
@@ -6,4 +9,21 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-weight: normal;
   line-height: 1.5;
+  margin-top: 111.713px;
+}
+
+.btn{
+  background-color: var.$background-color-tertiary;
+  color: var.$text-color-primary;
+  padding: 12px;
+  border-radius: 5px;
+  border: 3px solid transparent;
+  text-decoration: none;
+  font-weight: var.$font-weight-bold;
+  &:hover{
+    background-color: var.$background-color-base;
+    color: var.$background-color-tertiary;
+    border-color: var.$background-color-tertiary;
+    transition: .3s;
+  }
 }
