@@ -9,6 +9,7 @@ nav{
     width: 100%;
     padding-top: math.div(var.$gutter-base, 1.5);
     padding-bottom: math.div(var.$gutter-base, 1.5);
+    z-index: 1000;
 
     &.active{
         background-color: var.$background-color-secondary;

@@ -10,3 +10,7 @@ hamburger.addEventListener("click", () => {
     navbar.classList.toggle("active");
     logo.classList.toggle("active");
 });
+
+
+
+
