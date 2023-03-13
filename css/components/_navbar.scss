@@ -27,11 +27,14 @@ nav{
         justify-content: space-between;
 
         .logo{
-            width: 50px;
-
-            @include mix.tablet-l-styles{
-                width: 30px;
+            img{
+                width: 50px;
+                @include mix.tablet-l-styles{
+                    width: 30px;
+                }
             }
+
+            
             &.active{
                 display: none;
             }
@@ -103,9 +106,16 @@ nav{
                     text-decoration: none;
                     color: var.$text-color-base;
                     font-weight: var.$font-weight-bold;
-                    &:hover{
-                        color: var.$background-color-tertiary;
-                        transition: .3s;
+                    &::after{
+                        display:block;
+                        content: '';
+                        border-bottom: solid 3px #000;  
+                        transform: scaleX(0);  
+                        transition: transform 250ms ease-in-out;
+                    }
+
+                    &:hover::after{
+                        transform: scaleX(1);
                     }
                     @media(max-width:1400px){
                         font-size: 12px;
@@ -122,10 +132,20 @@ nav{
 
         .hamburger{
             display: none;
+            background-color: transparent;
+            border: none;
+            padding: 0;
+
+            @include mix.tablet-l-styles{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
 
             &.active{
                 margin-left: auto;
                 margin-top: 10px;
+    
                 .bar{
                     background-color: var.$background-color-base;
                     &.first{
@@ -143,35 +163,30 @@ nav{
                 }
                 
             }
-            div{
-                .bar{
-                    display: block;
-                    height: 5px;
-                    margin-bottom: 5px;
-                    background-color: var.$background-color-secondary;
-                    border-radius: 4px;
-                    -webkit-transition: all 0.3s ease;
-                    transition: all 0.3s ease;
+            .bar{
+                display: block;
+                height: 5px;
+                margin-bottom: 5px;
+                background-color: var.$background-color-secondary;
+                border-radius: 4px;
+                -webkit-transition: all 0.3s ease;
+                transition: all 0.3s ease;
 
 
-                    &.first{
-                        width: 35px;
-                    }
-                    &.second{
-                        width: 25px;
-                        margin-left: auto;
-                    }
-                    &.third{
-                        width: 15px;
-                        margin-left: auto;
-                    }
+                &.first{
+                    width: 35px;
+                }
+                &.second{
+                    width: 25px;
+                    margin-left: auto;
+                }
+                &.third{
+                    width: 15px;
+                    margin-left: auto;
                 }
             }
 
-            @include mix.tablet-l-styles{
-                display: flex;
-                align-items: center;
-            }
+            
         }
     }
 }

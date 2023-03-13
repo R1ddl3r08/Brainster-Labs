@@ -23,10 +23,11 @@ body {
   border: 3px solid transparent;
   text-decoration: none;
   font-weight: var.$font-weight-bold;
+  transition: .3s ease;
   &:hover{
-    background-color: var.$background-color-base;
-    color: var.$background-color-tertiary;
-    border-color: var.$background-color-tertiary;
-    transition: .3s;
+    background-color: var.$background-color-secondary;
+    color: var.$background-color-primary;
+    // border-color: var.$background-color-tertiary;
+    box-shadow: 4px 4px 4px #000;
   }
 }
