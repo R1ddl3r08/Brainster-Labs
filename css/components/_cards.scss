@@ -16,13 +16,22 @@
             cursor: pointer;
 
             p{
-                flex-basis: 70%;
-                font-size: 17px;
-                margin: 0;
+                flex-basis: 85%;
+                font-size: 16px;
+                margin: 0 0 0 40px;
+                @include mix.tablet-styles{
+                    font-size: 16px;
+                    margin-left: 10px;
+                }
+
+                @include mix.mobile-l-styles{
+                    font-size: 14px;
+                    margin-left: 10px;
+                }
             }
 
             i{
-                flex-basis: 30%;
+                flex-basis: 15%;
                 text-align: center;
                 align-self: center;
                 font-size: 40px;
@@ -33,6 +42,11 @@
             &.active{
                 background-color: var.$background-color-tertiary;
                 color: var.$text-color-base;
+            }
+
+            &:not(.active):hover{
+                background-color: #4c4b57;
+                transition: .3s;
             }
 
             input{
