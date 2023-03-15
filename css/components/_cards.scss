@@ -17,6 +17,7 @@
 
             p{
                 flex-basis: 85%;
+                align-self: center;
                 font-size: 16px;
                 margin: 0 0 0 40px;
                 @include mix.tablet-styles{
