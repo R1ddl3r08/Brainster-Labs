@@ -1,0 +1,162 @@
+@use '../abstracts/mixins' as mix;
+@use "../abstracts/variables" as var;
+@use 'sass:math';
+
+.cards{
+    .filtering{
+        display: flex;
+        flex-wrap: wrap;
+        label{
+            flex-basis: 33.3333%;
+            display: flex;
+            padding: 15px 30px;
+            background-color: var.$background-color-secondary;
+            color: var.$text-color-primary;
+            font-weight: var.$font-weight-bold;
+            cursor: pointer;
+
+            p{
+                flex-basis: 85%;
+                font-size: 16px;
+                margin: 0 0 0 40px;
+                @include mix.tablet-styles{
+                    font-size: 16px;
+                    margin-left: 10px;
+                }
+
+                @include mix.mobile-l-styles{
+                    font-size: 14px;
+                    margin-left: 10px;
+                }
+            }
+
+            i{
+                flex-basis: 15%;
+                text-align: center;
+                align-self: center;
+                font-size: 40px;
+                color: var.$background-color-secondary;
+                // display: none;
+            }
+
+            &.active{
+                background-color: var.$background-color-tertiary;
+                color: var.$text-color-base;
+            }
+
+            &:not(.active):hover{
+                background-color: #4c4b57;
+                transition: .3s;
+            }
+
+            input{
+                display: none;
+            }
+
+            @include mix.tablet-styles{
+                flex-basis: 100%
+            }
+        }
+    }
+
+    .projects{
+        @extend %section;
+        background-color: var.$background-color-primary;
+        .wrap{
+            @extend %wrap70;
+
+            h2{
+                font-size: var.$heading-size-big;
+                text-align: center;
+                color: var.$background-color-secondary;
+            }
+
+            .grid{
+                display: flex;
+                flex-wrap: wrap;
+                margin-right: -20px;
+
+                .card{
+                    flex-basis: 33.3333%;
+                    margin-bottom: 20px;
+                    @include mix.tablet-styles{
+                        flex-basis: 50%;
+                    }
+
+                    @include mix.mobile-l-styles{
+                        flex-basis: 100%;
+                    }
+
+                    .inner-card{
+                        margin-right: 20px;
+                        background-color: var.$background-color-base;
+                        border-radius: 12px;
+                        overflow: hidden;
+                        box-shadow: 1px 1px 8px #505050;
+                        height: 100%;
+                        transition: .3s;
+
+                        &:hover{
+                            transform: scale(1.03) translateY(-10px) ;
+                        }
+
+                        .image-box{
+                            height: 200px;
+                            overflow: hidden;
+
+                            img{
+                                min-height: 100%;
+                            }
+                        }
+
+                        .content{
+                            padding: 20px;
+
+                            .badge{
+                                padding: 5px 16px;
+                                background-color: var.$background-color-primary;
+                                display: inline-block;
+
+                                p{
+                                    margin: 0;
+                                    font-weight: var.$font-weight-bold;
+                                    font-size: 14px;
+                                }
+                            }
+
+                            .text{
+                                h3{
+                                    font-size: 20px;
+                                    font-weight: var.$font-weight-bold;
+                                    line-height: 30px;
+                                    margin: 10px 0;
+                                }
+
+                                p{
+                                    font-size: 15px;
+                                    margin-bottom: 10px;
+                                }
+
+                                span{
+                                    font-weight: var.$font-weight-bold;
+                                    font-size: 12px;
+                                }
+                            }
+
+                            .btn-div{
+                                display: flex;
+                                justify-content: end;
+
+                                .btn{
+                                    display: inline-block;
+                                    padding: 8px 30px;
+                                    margin-top: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
