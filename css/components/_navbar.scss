@@ -1,0 +1,192 @@
+@use '../abstracts/mixins' as mix;
+@use "../abstracts/variables" as var;
+@use 'sass:math';
+
+nav{
+    background-color: var.$background-color-primary;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-top: math.div(var.$gutter-base, 1.5);
+    padding-bottom: math.div(var.$gutter-base, 1.5);
+    z-index: 1000;
+
+    &.active{
+        background-color: var.$background-color-secondary;
+        transition: .3s;
+    }
+
+    @include mix.tablet-l-styles{
+        padding-top: math.div(var.$gutter-base, 3);
+        padding-bottom: math.div(var.$gutter-base, 3);
+    }
+
+    .wrap{
+        @extend %wrap90;
+        display: flex;
+        justify-content: space-between;
+
+        .logo{
+            img{
+                width: 50px;
+                @include mix.tablet-l-styles{
+                    width: 30px;
+                }
+            }
+
+            
+            &.active{
+                display: none;
+            }
+            a{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                text-decoration: none;
+                color: var.$text-color-base;
+                font-weight: var.$font-weight-bold;
+
+                p{
+                    font-size: var.$font-size-small;
+                    margin-top: 8px;
+                    margin-bottom: 0;
+                }
+            }
+        } 
+        
+        ul.nav-menu{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            list-style-type: none;
+
+            @include mix.tablet-l-styles{
+                position: fixed;
+                left: 100%;
+                top: 60px;
+                bottom: 0;
+                width: 100%;
+                background-color: var.$background-color-secondary;
+                flex-direction: column;
+                align-items: start;
+                transition: .3s;
+            }
+
+            &.active{
+                left: 0;
+            }
+
+            li{
+                &:not(:last-child){
+                    margin-left: 40px;
+                    @include mix.tablet-l-styles{
+                        margin: 12px 40px;
+                    }
+                    @media(max-width:1190px){
+                        margin-left: 20px;
+                        text-align: right;
+
+                    }
+
+                    
+                }
+                &:last-child{
+                    margin-left: 70px;
+                    @include mix.tablet-l-styles{
+                        margin: 25px 40px;
+                    }
+
+                    @media(max-width:1190px){
+                        margin-left: 20px;
+
+                    }
+                }
+                a:not(.btn){
+                    text-decoration: none;
+                    color: var.$text-color-base;
+                    font-weight: var.$font-weight-bold;
+                    &::after{
+                        display:block;
+                        content: '';
+                        border-bottom: solid 3px #000;  
+                        transform: scaleX(0);  
+                        transition: transform 250ms ease-in-out;
+                    }
+
+                    &:hover::after{
+                        transform: scaleX(1);
+                    }
+                    @media(max-width:1400px){
+                        font-size: 12px;
+                    }
+
+                    @include mix.tablet-l-styles{
+                        color: var.$text-color-primary;
+                    }
+                }
+
+                
+            }
+        }
+
+        .hamburger{
+            display: none;
+            background-color: transparent;
+            border: none;
+            padding: 0;
+
+            @include mix.tablet-l-styles{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            &.active{
+                margin-left: auto;
+                margin-top: 10px;
+    
+                .bar{
+                    background-color: var.$background-color-base;
+                    &.first{
+                        transform: translateY(10px) rotate(45deg);
+                    }
+
+                    &.second{
+                        opacity: 0;
+                    }
+
+                    &.third{
+                        transform: translateY(-10px) rotate(-45deg);
+                        width: 35px;
+                    }
+                }
+                
+            }
+            .bar{
+                display: block;
+                height: 5px;
+                margin-bottom: 5px;
+                background-color: var.$background-color-secondary;
+                border-radius: 4px;
+                -webkit-transition: all 0.3s ease;
+                transition: all 0.3s ease;
+
+
+                &.first{
+                    width: 35px;
+                }
+                &.second{
+                    width: 25px;
+                    margin-left: auto;
+                }
+                &.third{
+                    width: 15px;
+                    margin-left: auto;
+                }
+            }
+
+            
+        }
+    }
+}
