@@ -46,8 +46,13 @@ function filterCoding(){
 
         document.querySelector("#filterDesign").checked = false;
         document.querySelector("#filterMarketing").checked = false;
+        document.querySelector(".load-more").style.display = "none";
     } else {
         showAll();
+        document.querySelector(".load-more").style.display = "inline-block";
+        for (let i = initialCards; i < container.children.length; i++) {
+            container.children[i].style.display = "none";
+          }
     }
 }
 
@@ -63,8 +68,13 @@ function filterMarketing(){
 
         document.querySelector("#filterDesign").checked = false;
         document.querySelector("#filterCoding").checked = false;
+        document.querySelector(".load-more").style.display = "none";
     } else {
         showAll();
+        document.querySelector(".load-more").style.display = "inline-block";
+        for (let i = initialCards; i < container.children.length; i++) {
+            container.children[i].style.display = "none";
+          }
     }
 }
 
@@ -80,8 +90,13 @@ function filterDesign(){
 
         document.querySelector("#filterMarketing").checked = false;
         document.querySelector("#filterCoding").checked = false;
+        document.querySelector(".load-more").style.display = "none";
     } else {
         showAll();
+        document.querySelector(".load-more").style.display = "inline-block";
+        for (let i = initialCards; i < container.children.length; i++) {
+            container.children[i].style.display = "none";
+          }
     }
 }
 
@@ -110,6 +125,29 @@ function activeMarketing(){
 }
 
 
+// ------------------LOAD MORE--------------------
+const container = document.querySelector(".grid");
+const loadMore = document.querySelector(".load-more");
+let initialCards = 6;
+const loadCards = 6;
 
+for (let i = initialCards; i < container.children.length; i++) {
+  container.children[i].style.display = "none";
+}
+
+loadMore.addEventListener("click", loadMoreCards);
+
+function loadMoreCards(){
+    for (let i = initialCards; i < initialCards + loadCards; i++) {
+        if (i >= container.children.length) {
+          loadMore.style.display = "none";
+          break;
+        }
+        container.children[i].style.display = "block";
+      }
+      initialCards += loadCards;
+}
+
+  
 
 

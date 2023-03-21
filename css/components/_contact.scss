@@ -1,0 +1,184 @@
+@use '../abstracts/mixins' as mix;
+@use "../abstracts/variables" as var;
+@use 'sass:math';
+
+.hire-students{
+    background-color: var.$background-color-primary;
+    @extend %section;
+
+    @media(max-width: 550px){
+        position: relative;
+    }
+
+    .wrap{
+        @extend %wrap70;
+
+        h1{
+            text-align: center;
+            font-size: 70px;
+            color: var.$background-color-secondary;
+
+            @media(max-width: 550px){
+                font-size: 40px;
+            }
+
+        }
+
+        form{
+            display: flex;
+            flex-wrap: wrap;
+            margin: 100px -20px 250px 0px;
+
+            @media(max-width: 550px){
+                flex-basis: 100%;
+                margin-top: 30px;
+                margin-bottom: 280px;
+            }
+
+            .form-group{
+                flex-basis: 50%;
+
+                &.success{
+                    input{
+                        border-color: #09c372;
+                    }
+                }
+
+                &.error{
+                    input{
+                        border-color: #ff3860;
+                    }
+                }
+
+                @media(max-width: 550px){
+                    flex-basis: 100%;
+                }
+
+                label{
+                    display: block;
+                    margin: 10px 0 5px;
+                    font-weight: var.$font-weight-bold;
+                }
+
+                input, .dropbtn{
+                    width: calc(100% - 20px);
+                    display: block;
+                    padding: 16px;
+                    outline: none;
+                    border: 3px solid transparent;
+                    border-radius: 5px;
+                }
+
+                input::placeholder{
+                    font-style: italic;
+                    color: #b3b3b3;
+                }
+
+                .error{
+                    color: #ff3860;
+                    font-size: 12px;
+                    font-weight: var.$font-weight-bold;
+                    height: 13px;
+                }
+
+            }
+
+            /* The container must be positioned relative: */
+            .custom-select {
+                position: relative;
+                font-weight: var.$font-weight-bold;
+                width: calc(100% - 20px);
+                // margin-bottom: 20px;
+            }
+            
+            .custom-select select {
+                display: none; /*hide original SELECT element: */
+            }
+            
+            .select-selected {
+                background-color: var.$background-color-base;
+                border-radius: 5px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            
+            /* Style the arrow inside the select element: */
+            .select-selected:after {
+                font:normal normal normal 14px/1 FontAwesome;
+                content: '\f078';
+            }
+            
+            /* style the items (options), including the selected item: */
+            .select-items div,.select-selected {
+                color: var.$text-color-base;
+                padding: 16px;
+                border: 3px solid transparent;
+                border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+                cursor: pointer;
+                font-size: 14px;
+            }
+            
+            /* Style items (options): */
+            .select-items {
+                position: absolute;
+                background-color: var.$background-color-base;
+                border-radius: 5px;
+                top: 120%;
+                left: 0;
+                right: 0;
+                z-index: 99;
+            }
+            
+            /* Hide the items when the select box is closed: */
+            .select-hide {
+                display: none;
+            }
+            
+            .select-items div:hover, .same-as-selected {
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+
+            .form-group.submit{
+                display: flex;
+
+                @media(max-width: 550px){
+                    position: absolute;
+                    bottom: 10px;
+                    width: 95%;
+                }
+
+                button{
+                    display: block;
+                    width: calc(100% - 20px);
+                    background-color: var.$background-color-tertiary;
+                    outline: none;
+                    border: 3px solid transparent;
+                    border-radius: 5px;
+                    color: var.$text-color-primary;
+                    padding: 16px;
+                    align-self: flex-end;
+                    cursor: pointer;
+                    transition: .3s;
+                    font-weight: var.$font-weight-bold;
+
+                    &:hover{
+                        background-color: var.$background-color-base;
+                        color: var.$background-color-tertiary;
+                        border-color: var.$background-color-tertiary;
+                    }
+                }
+            }
+
+            .successMessage{
+                margin-top: 30px;
+                color: #09c372;
+                font-size: 18px;
+                font-weight: var.$font-weight-bold;
+                display: none;
+            }
+        }
+    }
+
+}

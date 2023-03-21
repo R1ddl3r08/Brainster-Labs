@@ -1,0 +1,23 @@
+@use '../abstracts/mixins' as mix;
+@use "../abstracts/variables" as var;
+@use 'sass:math';
+
+table{
+    border-collapse: collapse;
+    font-size: 20px;
+    text-align: left;
+    border: 2px solid var.$background-color-secondary;
+    margin: 0 auto;
+
+    th, td{
+        border: 2px solid var.$background-color-secondary;
+        padding: 10px 15px;
+    }
+
+    th{
+        background-color: var.$background-color-secondary;
+        color: var.$text-color-primary;
+    }
+
+    
+}

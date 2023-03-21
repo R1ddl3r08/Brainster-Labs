@@ -22,24 +22,24 @@ img {
   max-width: 100%;
 }
 
-.cards .projects {
+.hire-students, .cards .projects {
   padding-top: 1.875rem;
   padding-bottom: 1.875rem;
 }
 @media (max-width: 999px) {
-  .cards .projects {
+  .hire-students, .cards .projects {
     padding-top: 1.875rem;
     padding-bottom: 1.875rem;
   }
 }
 
-footer .wrap, .cards .projects .wrap {
+.hire-students .wrap, footer .wrap, .cards .projects .wrap {
   max-width: 70%;
   margin-left: auto;
   margin-right: auto;
 }
 @media (max-width: 999px) {
-  footer .wrap, .cards .projects .wrap {
+  .hire-students .wrap, footer .wrap, .cards .projects .wrap {
     max-width: 90%;
   }
 }
@@ -501,15 +501,24 @@ header .row:nth-child(even) div:nth-child(2) {
 .cards .projects {
   background-color: #fcd232;
 }
+.cards .projects .wrap {
+  display: flex;
+  flex-direction: column;
+}
 .cards .projects .wrap h2 {
   font-size: 2.8125rem;
   text-align: center;
   color: #302f38;
 }
+.cards .projects .wrap button {
+  align-self: center;
+  cursor: pointer;
+}
 .cards .projects .wrap .grid {
   display: flex;
   flex-wrap: wrap;
   margin-right: -20px;
+  margin-bottom: 30px;
 }
 .cards .projects .wrap .grid .card {
   flex-basis: 33.3333%;
@@ -594,6 +603,174 @@ footer .wrap p {
 }
 footer .wrap p span {
   color: red;
+}
+
+.hire-students {
+  background-color: #fcd232;
+}
+@media (max-width: 550px) {
+  .hire-students {
+    position: relative;
+  }
+}
+.hire-students .wrap h1 {
+  text-align: center;
+  font-size: 70px;
+  color: #302f38;
+}
+@media (max-width: 550px) {
+  .hire-students .wrap h1 {
+    font-size: 40px;
+  }
+}
+.hire-students .wrap form {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 100px -20px 250px 0px;
+  /* The container must be positioned relative: */
+  /* Style the arrow inside the select element: */
+  /* style the items (options), including the selected item: */
+  /* Style items (options): */
+  /* Hide the items when the select box is closed: */
+}
+@media (max-width: 550px) {
+  .hire-students .wrap form {
+    flex-basis: 100%;
+    margin-top: 30px;
+    margin-bottom: 280px;
+  }
+}
+.hire-students .wrap form .form-group {
+  flex-basis: 50%;
+}
+.hire-students .wrap form .form-group.success input {
+  border-color: #09c372;
+}
+.hire-students .wrap form .form-group.error input {
+  border-color: #ff3860;
+}
+@media (max-width: 550px) {
+  .hire-students .wrap form .form-group {
+    flex-basis: 100%;
+  }
+}
+.hire-students .wrap form .form-group label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: 700;
+}
+.hire-students .wrap form .form-group input, .hire-students .wrap form .form-group .dropbtn {
+  width: calc(100% - 20px);
+  display: block;
+  padding: 16px;
+  outline: none;
+  border: 3px solid transparent;
+  border-radius: 5px;
+}
+.hire-students .wrap form .form-group input::placeholder {
+  font-style: italic;
+  color: #b3b3b3;
+}
+.hire-students .wrap form .form-group .error {
+  color: #ff3860;
+  font-size: 12px;
+  font-weight: 700;
+  height: 13px;
+}
+.hire-students .wrap form .custom-select {
+  position: relative;
+  font-weight: 700;
+  width: calc(100% - 20px);
+}
+.hire-students .wrap form .custom-select select {
+  display: none; /*hide original SELECT element: */
+}
+.hire-students .wrap form .select-selected {
+  background-color: #FFF;
+  border-radius: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hire-students .wrap form .select-selected:after {
+  font: normal normal normal 14px/1 FontAwesome;
+  content: "\f078";
+}
+.hire-students .wrap form .select-items div, .hire-students .wrap form .select-selected {
+  color: #111;
+  padding: 16px;
+  border: 3px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+  cursor: pointer;
+  font-size: 14px;
+}
+.hire-students .wrap form .select-items {
+  position: absolute;
+  background-color: #FFF;
+  border-radius: 5px;
+  top: 120%;
+  left: 0;
+  right: 0;
+  z-index: 99;
+}
+.hire-students .wrap form .select-hide {
+  display: none;
+}
+.hire-students .wrap form .select-items div:hover, .hire-students .wrap form .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.hire-students .wrap form .form-group.submit {
+  display: flex;
+}
+@media (max-width: 550px) {
+  .hire-students .wrap form .form-group.submit {
+    position: absolute;
+    bottom: 10px;
+    width: 95%;
+  }
+}
+.hire-students .wrap form .form-group.submit button {
+  display: block;
+  width: calc(100% - 20px);
+  background-color: #eb3b3b;
+  outline: none;
+  border: 3px solid transparent;
+  border-radius: 5px;
+  color: #FFF;
+  padding: 16px;
+  align-self: flex-end;
+  cursor: pointer;
+  transition: 0.3s;
+  font-weight: 700;
+}
+.hire-students .wrap form .form-group.submit button:hover {
+  background-color: #FFF;
+  color: #eb3b3b;
+  border-color: #eb3b3b;
+}
+.hire-students .wrap form .successMessage {
+  margin-top: 30px;
+  color: #09c372;
+  font-size: 18px;
+  font-weight: 700;
+  display: none;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 20px;
+  text-align: left;
+  border: 2px solid #302f38;
+  margin: 0 auto;
+}
+table th, table td {
+  border: 2px solid #302f38;
+  padding: 10px 15px;
+}
+table th {
+  background-color: #302f38;
+  color: #FFF;
 }
 
 /*# sourceMappingURL=main.css.map */
