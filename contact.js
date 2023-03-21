@@ -98,16 +98,17 @@ then close all select boxes: */
 document.addEventListener("click", closeAllSelect);
 
 
-// ---------------FORM VALIDATION--------------------
+// // ---------------FORM VALIDATION--------------------
 const form = document.getElementById('form');
 const fullName = document.getElementById('name');
 const company = document.getElementById('company');
 const email = document.getElementById('contact-mail');
 const tel = document.getElementById('tel');
+const type = document.querySelector(".select-selected");
+
 
 form.addEventListener('submit', e => {
-    e.preventDefault();
-
+    // e.preventDefault();
     validateInputs();
 });
 
@@ -140,7 +141,7 @@ const isValidName = name => {
   }
 
 const isValidTel = tel => {
-    const telRegex = /^\+(?:[0-9] ?){6,14}[0-9]$/;
+    const telRegex = /^((\+389)|0)7(0|1|2|3|4|5|6|7|8)[0-9]{6}$/gm;
     return telRegex.test(tel);
   }
 
@@ -178,6 +179,16 @@ const validateInputs = () => {
         setSuccess(tel);
     }
 
-
-    
+    if(type.innerHTML === 'Изберете тип на студент') {
+        type.style.borderColor = "#ff3860";
+        e.preventDefault();
+    } else {
+        type.style.borderColor = "#09c372";
+    }
 };
+
+
+
+
+
+

@@ -65,6 +65,8 @@
         background-color: var.$background-color-primary;
         .wrap{
             @extend %wrap70;
+            display: flex;
+            flex-direction: column;
 
             h2{
                 font-size: var.$heading-size-big;
@@ -72,14 +74,25 @@
                 color: var.$background-color-secondary;
             }
 
+            button{
+                align-self: center;
+                cursor: pointer;
+            }
+
             .grid{
                 display: flex;
                 flex-wrap: wrap;
                 margin-right: -20px;
+                margin-bottom: 30px;
 
                 .card{
                     flex-basis: 33.3333%;
                     margin-bottom: 20px;
+                    // display: none;
+
+                    // &.showCard{
+                    //     display: inline-block;
+                    // }
                     @include mix.tablet-styles{
                         flex-basis: 50%;
                     }

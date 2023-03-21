@@ -114,7 +114,7 @@
             .select-items div,.select-selected {
                 color: var.$text-color-base;
                 padding: 16px;
-                border: 1px solid transparent;
+                border: 3px solid transparent;
                 border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
                 cursor: pointer;
                 font-size: 14px;
@@ -169,6 +169,14 @@
                         border-color: var.$background-color-tertiary;
                     }
                 }
+            }
+
+            .successMessage{
+                margin-top: 30px;
+                color: #09c372;
+                font-size: 18px;
+                font-weight: var.$font-weight-bold;
+                display: none;
             }
         }
     }

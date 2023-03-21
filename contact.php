@@ -38,7 +38,7 @@
                     " class="nav-link" target="_blank">Академија за дизајн</a>
                 </li>
                 <li class="list-item">
-                    <a href="contact.html" class="nav-link btn" target="_blank">Вработи наш студент</a>
+                    <a href="http://localhost:3000/contact.php" class="nav-link btn" target="_blank">Вработи наш студент</a>
                 </li>
             </ul>
 
@@ -52,44 +52,58 @@
 
     <div class="hire-students">
         <div class="wrap">
+            <iframe name="myframe" id="frame1" src="contact.php" style="display: none"></iframe>
             <h1>Вработи студенти</h1>
-            <form action="/" id="form">
+            <form action="http://localhost:3000/connect.php" id="form" method="post" target="myframe">
                 <div class="form-group name">
                     <label for="name">Име и презиме</label>
-                    <input type="text" id="name" placeholder="Вашето име и презиме">
+                    <input type="text" id="name" name="name" placeholder="Вашето име и презиме">
                     <div class="error"></div>
                 </div>
                 <div class="form-group company">
                     <label for="company">Име на компанија</label>
-                    <input type="text" id="company" placeholder="Име на вашата компанија">
+                    <input type="text" id="company" name="company" placeholder="Име на вашата компанија">
                     <div class="error"></div>
                 </div>
                 <div class="form-group mail">
                     <label for="contact-mail">Контакт имејл</label>
-                    <input type="text" id="contact-mail" placeholder="Контакт имејл на вашата компанија">
+                    <input type="text" id="contact-mail" name="contact-mail" placeholder="Контакт имејл на вашата компанија">
                     <div class="error"></div>
                 </div>
                 <div class="form-group tel">
                     <label for="tel">Контакт телефон</label>
-                    <input type="tel" id="tel" placeholder="Контакт телефон на вашата компанија">
+                    <input type="tel" id="tel" name="tel" placeholder="Контакт телефон на вашата компанија">
                     <div class="error"></div>
                 </div>
                 <div class="form-group type">
                     <label for="type">Тип на студенти</label>
                     <div class="custom-select">
-                        <select id="studentType">
-                          <option value="0">Изберете тип на студент</option>
-                          <option value="1">Студенти од маркетинг</option>
-                          <option value="2">Студенти од програмирање</option>
-                          <option value="3">Студенти од data science</option>
-                          <option value="4">Студенти од дизајн</option>
+                        <select id="studentType" name="type">
+                            <option value="0">Изберете тип на студент</option>
+                            <?php
+                                 $con = mysqli_connect('localhost', 'root', '', 'brainster_labs');
+
+                                 $query = "SELECT * FROM student_type";
+                                 $query_run = mysqli_query($con, $query);
+
+                                 if(mysqli_num_rows($query_run) > 0){
+                                    foreach($query_run as $row){
+                                        ?>
+                                            <option value="<?=$row['id'];?>"><?=$row['name'];?></option>
+                                        <?php
+                                    }
+                                 } else {
+                                    ?>
+                                        <option value="">No Record Found</option>
+                                    <?php
+                                 }
+                            ?>
                         </select>
                     </div>
                 </div>
                 <div class="form-group submit">
-                    <button type="submit">ИСПРАТИ</button>
+                    <button type="submit" name="submit">ИСПРАТИ</button>
                 </div> 
-
             </form>
         </div>
     </div>
@@ -102,6 +116,7 @@
         </div>
     </footer>
 
+    
     <script src="contact.js"></script>
 </body>
 </html>

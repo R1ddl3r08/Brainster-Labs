@@ -501,15 +501,24 @@ header .row:nth-child(even) div:nth-child(2) {
 .cards .projects {
   background-color: #fcd232;
 }
+.cards .projects .wrap {
+  display: flex;
+  flex-direction: column;
+}
 .cards .projects .wrap h2 {
   font-size: 2.8125rem;
   text-align: center;
   color: #302f38;
 }
+.cards .projects .wrap button {
+  align-self: center;
+  cursor: pointer;
+}
 .cards .projects .wrap .grid {
   display: flex;
   flex-wrap: wrap;
   margin-right: -20px;
+  margin-bottom: 30px;
 }
 .cards .projects .wrap .grid .card {
   flex-basis: 33.3333%;
@@ -691,7 +700,7 @@ footer .wrap p span {
 .hire-students .wrap form .select-items div, .hire-students .wrap form .select-selected {
   color: #111;
   padding: 16px;
-  border: 1px solid transparent;
+  border: 3px solid transparent;
   border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
   cursor: pointer;
   font-size: 14px;
@@ -739,6 +748,29 @@ footer .wrap p span {
   background-color: #FFF;
   color: #eb3b3b;
   border-color: #eb3b3b;
+}
+.hire-students .wrap form .successMessage {
+  margin-top: 30px;
+  color: #09c372;
+  font-size: 18px;
+  font-weight: 700;
+  display: none;
+}
+
+table {
+  border-collapse: collapse;
+  font-size: 20px;
+  text-align: left;
+  border: 2px solid #302f38;
+  margin: 0 auto;
+}
+table th, table td {
+  border: 2px solid #302f38;
+  padding: 10px 15px;
+}
+table th {
+  background-color: #302f38;
+  color: #FFF;
 }
 
 /*# sourceMappingURL=main.css.map */
