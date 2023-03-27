@@ -187,6 +187,14 @@ const validateInputs = () => {
     }
 };
 
+  window.addEventListener("message", receiveMessage, false);
+  function receiveMessage(event) {
+    if (event.data == "form-submitted") {
+      document.getElementById("success_message").innerHTML = "Вашата апликација е испратена. Ви благодариме на довербата.";
+    }
+  }
+
+
 
 
 

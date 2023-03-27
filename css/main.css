@@ -749,12 +749,11 @@ footer .wrap p span {
   color: #eb3b3b;
   border-color: #eb3b3b;
 }
-.hire-students .wrap form .successMessage {
+.hire-students .wrap form #success_message {
   margin-top: 30px;
-  color: #09c372;
+  color: #0c7e1b;
   font-size: 18px;
   font-weight: 700;
-  display: none;
 }
 
 table {

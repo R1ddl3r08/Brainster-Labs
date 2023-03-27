@@ -38,7 +38,7 @@
                     " class="nav-link" target="_blank">Академија за дизајн</a>
                 </li>
                 <li class="list-item">
-                    <a href="http://localhost:3000/contact.php" class="nav-link btn" target="_blank">Вработи наш студент</a>
+                    <a href="contact.php" class="nav-link btn" target="_blank">Вработи наш студент</a>
                 </li>
             </ul>
 
@@ -54,7 +54,7 @@
         <div class="wrap">
             <iframe name="myframe" id="frame1" src="contact.php" style="display: none"></iframe>
             <h1>Вработи студенти</h1>
-            <form action="http://localhost:3000/connect.php" id="form" method="post" target="myframe">
+            <form action="connect.php" id="form" method="post" target="myframe">
                 <div class="form-group name">
                     <label for="name">Име и презиме</label>
                     <input type="text" id="name" name="name" placeholder="Вашето име и презиме">
@@ -104,6 +104,7 @@
                 <div class="form-group submit">
                     <button type="submit" name="submit">ИСПРАТИ</button>
                 </div> 
+                <div id="success_message"></div>
             </form>
         </div>
     </div>

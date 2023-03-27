@@ -44,7 +44,7 @@
         $stmt = $conn->prepare("insert into contact(full_name, company_name, contact_email, contact_tel, student_type) values (?, ?, ?, ?, ?)");
         $stmt->bind_param("ssssi", $full_name, $company, $contact_mail, $tel, $type);
         $stmt->execute();
-        $message = "Your message has been sent successfully.";
+        echo "<script>window.parent.postMessage('form-submitted', '*');</script>";
         $stmt->close();
         $conn->close();
     
