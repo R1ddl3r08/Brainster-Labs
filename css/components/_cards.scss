@@ -22,12 +22,11 @@
                 margin: 0 0 0 40px;
                 @include mix.tablet-styles{
                     font-size: 16px;
-                    margin-left: 10px;
+                    margin-left: 0;
                 }
 
                 @include mix.mobile-l-styles{
                     font-size: 14px;
-                    margin-left: 10px;
                 }
             }
 
@@ -82,17 +81,12 @@
             .grid{
                 display: flex;
                 flex-wrap: wrap;
-                margin-right: -20px;
-                margin-bottom: 30px;
+                margin-right: -(math.div(var.$gutter-base, 1.5));
+                margin-bottom: var.$gutter-base;
 
                 .card{
                     flex-basis: 33.3333%;
-                    margin-bottom: 20px;
-                    // display: none;
-
-                    // &.showCard{
-                    //     display: inline-block;
-                    // }
+                    margin-bottom: (math.div(var.$gutter-base, 1.5));
                     @include mix.tablet-styles{
                         flex-basis: 50%;
                     }

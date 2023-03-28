@@ -60,7 +60,7 @@
                     font-weight: var.$font-weight-bold;
                 }
 
-                input, .dropbtn{
+                input{
                     width: calc(100% - 20px);
                     display: block;
                     padding: 16px;
@@ -88,7 +88,6 @@
                 position: relative;
                 font-weight: var.$font-weight-bold;
                 width: calc(100% - 20px);
-                // margin-bottom: 20px;
             }
             
             .custom-select select {
