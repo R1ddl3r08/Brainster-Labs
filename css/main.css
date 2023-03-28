@@ -12,10 +12,13 @@ h3,
 h4,
 h5,
 h6,
-p,
-ul,
-ol {
+p {
   margin-top: 0;
+}
+
+ul, ol {
+  margin: 0;
+  padding: 0;
 }
 
 img {
@@ -135,8 +138,6 @@ nav .wrap .logo a p {
   margin-bottom: 0;
 }
 nav .wrap ul.nav-menu {
-  margin: 0;
-  padding: 0;
   display: flex;
   align-items: center;
   list-style-type: none;
@@ -207,6 +208,7 @@ nav .wrap ul.nav-menu li a:not(.btn):hover::after {
 @media (max-width: 1100px) {
   nav .wrap ul.nav-menu li a:not(.btn) {
     color: #FFF;
+    font-size: 1.125rem;
   }
 }
 nav .wrap .hamburger {
@@ -466,13 +468,12 @@ header .row:nth-child(even) div:nth-child(2) {
 @media (max-width: 768px) {
   .cards .filtering label p {
     font-size: 16px;
-    margin-left: 10px;
+    margin-left: 0;
   }
 }
 @media (max-width: 426px) {
   .cards .filtering label p {
     font-size: 14px;
-    margin-left: 10px;
   }
 }
 .cards .filtering label i {
@@ -517,12 +518,12 @@ header .row:nth-child(even) div:nth-child(2) {
 .cards .projects .wrap .grid {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -20px;
-  margin-bottom: 30px;
+  margin-right: -1.25rem;
+  margin-bottom: 1.875rem;
 }
 .cards .projects .wrap .grid .card {
   flex-basis: 33.3333%;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 @media (max-width: 768px) {
   .cards .projects .wrap .grid .card {
@@ -659,7 +660,7 @@ footer .wrap p span {
   margin: 10px 0 5px;
   font-weight: 700;
 }
-.hire-students .wrap form .form-group input, .hire-students .wrap form .form-group .dropbtn {
+.hire-students .wrap form .form-group input {
   width: calc(100% - 20px);
   display: block;
   padding: 16px;

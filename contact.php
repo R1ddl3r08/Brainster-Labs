@@ -54,7 +54,7 @@
         <div class="wrap">
             <iframe name="myframe" id="frame1" src="contact.php" style="display: none"></iframe>
             <h1>Вработи студенти</h1>
-            <form action="connect.php" id="form" method="post" target="myframe">
+            <form action="./php/connect.php" id="form" method="post" target="myframe">
                 <div class="form-group name">
                     <label for="name">Име и презиме</label>
                     <input type="text" id="name" name="name" placeholder="Вашето име и презиме">
@@ -81,22 +81,7 @@
                         <select id="studentType" name="type">
                             <option value="0">Изберете тип на студент</option>
                             <?php
-                                 $con = mysqli_connect('localhost', 'root', '', 'brainster_labs');
-
-                                 $query = "SELECT * FROM student_type";
-                                 $query_run = mysqli_query($con, $query);
-
-                                 if(mysqli_num_rows($query_run) > 0){
-                                    foreach($query_run as $row){
-                                        ?>
-                                            <option value="<?=$row['id'];?>"><?=$row['name'];?></option>
-                                        <?php
-                                    }
-                                 } else {
-                                    ?>
-                                        <option value="">No Record Found</option>
-                                    <?php
-                                 }
+                                 include "./php/student_type.php";
                             ?>
                         </select>
                     </div>
@@ -118,6 +103,6 @@
     </footer>
 
     
-    <script src="contact.js"></script>
+    <script src="./js/contact.js"></script>
 </body>
 </html>
