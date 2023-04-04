@@ -714,6 +714,7 @@ footer .wrap p span {
   left: 0;
   right: 0;
   z-index: 99;
+  box-shadow: 1px 1px 3px 1px #4e4e4e;
 }
 .hire-students .wrap form .select-hide {
   display: none;
